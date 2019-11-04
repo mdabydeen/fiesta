@@ -12,24 +12,25 @@ services:
   # Websever
   nginx:
     image: nginx:stable-alpine
-    container_name: nginx
+    container_name: fiesta-nginx
     ports:
-      - "8080:80"
+      - "80:80"
     volumes:
       - ./backend:/var/www
       - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
     depends_on:
       - php
       - db
+      - redis
     networks:
       - fiesta
 
   # PHP
   php:
       build:
-          context: ./backend
-          dockerfile: Dockerfile
-      container_name: php
+        context: ./backend
+        dockerfile: Dockerfile
+      container_name: fiesta-php
       volumes:
           - ./backend:/var/www
       ports:
@@ -54,7 +55,7 @@ services:
 
   # Adminer
   adminer:
-    container_name: fiesta-db
+    container_name: fiesta-adminer
     image: adminer
     depends_on:
       - db
@@ -65,12 +66,13 @@ services:
       ADMINER_DESIGN: nette
       ADMINER_PLUGINS: tables-filter tinymce
     ports:
-      - 9000:8080
+      - 8080:8080
     networks:
       - fiesta
 
   # Redis
   redis:
     image: redis:5-alpine
+    container_name: fiesta-redis
     networks:
-      - exp-network
+      - fiesta
