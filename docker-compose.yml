@@ -52,6 +52,8 @@ services:
       MYSQL_PASSWORD: secret
       MYSQL_ROOT_PASSWORD: secret
       SERVICE_TAGS: dev
+    networks:
+          - fiesta
 
   # Adminer
   adminer:
@@ -62,7 +64,7 @@ services:
     environment:
       ADMINER_DEFAULT_DB_DRIVER: mysql
       ADMINER_DEFAULT_DB_HOST: db
-      ADMINER_DEFAULT_DB_NAME: fiesta
+      ADMINER_DEFAULT_DB_NAME: homestead
       ADMINER_DESIGN: nette
       ADMINER_PLUGINS: tables-filter tinymce
     ports:
