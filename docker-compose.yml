@@ -69,4 +69,8 @@ services:
     networks:
       - fiesta
 
-
+  # Redis
+  redis:
+    image: redis:5-alpine
+    networks:
+      - exp-network
