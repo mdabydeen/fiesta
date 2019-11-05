@@ -29,7 +29,7 @@ class AuthController extends Controller
         if(Auth::attempt(['email' => request('email'), 'password' => request('password')]))
         {
             $user = Auth::user();
-            $success['token'] = $user->createToken('myApp')-> accessToken;
+            $success['token'] = $user->createToken('Fiesta')-> accessToken;
 
             return response()->json(['success' => $success], 200);
         } else {
@@ -52,7 +52,7 @@ class AuthController extends Controller
         $input = $request->all();
         $input['password'] = bcrypt($input['password']);
         $user = User::create($input);
-        $success['token'] =  $user->createToken('MyApp')->accessToken;
+        $success['token'] =  $user->createToken('Fiesta')->accessToken;
         $success['name'] =  $user->name;
 
         return response()->json(['success'=>$success], 200);
@@ -61,7 +61,7 @@ class AuthController extends Controller
     public function details()
     {
         $user = Auth::user();
-        return response()->json(['success' => $user], $this->successStatus);
+        return response()->json(['success' => $user], 200);
     }
 
     public function logout() {
