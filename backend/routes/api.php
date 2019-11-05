@@ -16,11 +16,17 @@ use Illuminate\Http\Request;
 /**
  * Auth Routes
  */
-Route::post('/login', 'Auth\AuthController@login');
-Route::post('/register', 'Auth\AuthController@register');
-Route::post('/forgot-password', 'Auth\AuthController@forgotPassword');
-Route::post('/reset-password', 'Auth\AuthController@resetPassword');
+Route::post('login', 'Auth\AuthController@login');
+Route::post('register', 'Auth\AuthController@register');
+Route::post('forgot-password', 'Auth\AuthController@forgotPassword');
+Route::post('reset-password', 'Auth\AuthController@resetPassword');
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return "Hello World!";
+Route::group(['middleware' => 'auth:api'],
+function() {
+    Route::get('logout', 'Auth\AuthController@logout');
+    Route::get('user', 'User\UserController@user');
 });
+
+// Route::middleware('auth:api')->get('user', function (Request $request) {
+//     return "Hello World!";
+// });
