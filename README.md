@@ -30,9 +30,9 @@ Navigate to `http://localhost` to get access to the web app.
 
 ## Built With
 
-* [Laravel](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [MariaDB](https://maven.apache.org/) - Database 
-* [VueJS](https://rometools.github.io/rome/) - Used to create the frontend
+* [Laravel](https://laravel.com) - The web framework used
+* [MariaDB](https://mariadb.org/) - Database 
+* [VueJS](https://vuejs.com) - Used to create the frontend
 
 
 ### _Not using Laradock_ 
