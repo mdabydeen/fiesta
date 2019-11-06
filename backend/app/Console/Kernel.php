@@ -4,6 +4,8 @@ namespace App\Console;
 
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
+use Illuminate\Support\Facades\Redis;
+
 
 class Kernel extends ConsoleKernel
 {
@@ -26,6 +28,12 @@ class Kernel extends ConsoleKernel
     {
         // $schedule->command('inspire')
         //          ->hourly();
+
+        // Call this function every five minutes to
+        // commit from cache to DB
+        $schedule->call(function() {
+
+        })->everyFiveMinutes();
     }
 
     /**
