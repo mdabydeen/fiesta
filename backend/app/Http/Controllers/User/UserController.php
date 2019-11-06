@@ -16,11 +16,7 @@ class UserController extends Controller
      */
     public function user(Request $request)
     {
-
-        $user = Cache::remember('users', 5*60, function() {
-            return User::all();
-        });
-
-        return response()->json($user);
+        // Return information about the current user.
+        return response()->json($request->user());
     }
 }

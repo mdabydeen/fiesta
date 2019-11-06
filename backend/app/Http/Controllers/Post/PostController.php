@@ -11,13 +11,14 @@ class PostController extends Controller
     //
     public function createPost(Request $request)
     {
-        // if ($this->validate($request)) {
+        // Add user post to Cache
+        $redis = Redis::lpush($request->user(), json_encode($request->all()));
 
-        // }
-        $redis = Redis::lpush("1", json_encode($request->all()));
+        // Get all user followers.
 
-        $values = Redis::lrange('1', 0, -1);
+        // Fan out user post to all followers.
 
-        return response()->json($values);
+
+        return response()->json(['status' => 'created'], 200);
     }
 }
