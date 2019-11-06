@@ -1,7 +1,38 @@
-# Fiesta Social Media App
+# Fiesta App
 
 Fiesta is a simple social media platform where users can post, like comments etc.
 just like any other social media application.
+
+## Getting Started
+
+```sh
+$ docker-compose up -d
+```
+
+### Prerequisites
+
+- Docker CE  
+- Docker Compose 
+
+### Running
+
+Navigate to `http://localhost` to get access to the web app. 
+
+## Features: 
+
+- Users can register accounts. 
+- Users can login to accounts. 
+- Users can follow each other. 
+- Users can create comments. 
+- Users can like each other comments. 
+- Users can view their own timeline
+- Users can view each other's timeline. 
+
+## Built With
+
+* [Laravel](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
+* [MariaDB](https://maven.apache.org/) - Database 
+* [VueJS](https://rometools.github.io/rome/) - Used to create the frontend
 
 
 ### _Not using Laradock_ 
@@ -12,4 +43,8 @@ By rolling out my own setup, I am able to key my configs lean and only use the b
 
 ## API Documentation
 
-Use Swagger UI for API Documentation.
+Used Swagger UI for API Documentation.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
