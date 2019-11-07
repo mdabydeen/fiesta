@@ -28,6 +28,11 @@ Navigate to `http://localhost` to get access to the web app.
 - Users can view their own timeline
 - Users can view each other's timeline. 
 
+## Future Considerations. 
+
+- Split services up into micro-services. 
+- Use a proper message queue (ActiveMQ, RabbitMQ, Kafka etc.)
+
 ## Built With
 
 * [Laravel](https://laravel.com) - The web framework used
