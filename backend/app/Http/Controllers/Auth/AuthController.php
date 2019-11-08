@@ -29,7 +29,7 @@ class AuthController extends Controller
         if(Auth::attempt(['email' => request('email'), 'password' => request('password')]))
         {
             $user = Auth::user();
-            $success['token'] = $user->createToken('Fiesta')-> accessToken;
+            $success['token'] = $user->createToken('Fiesta')->accessToken;
 
             return response()->json(['success' => $success], 200);
         } else {
@@ -55,7 +55,7 @@ class AuthController extends Controller
         $success['token'] =  $user->createToken('Fiesta')->accessToken;
         $success['name'] =  $user->name;
 
-        return response()->json(['success'=>$success], 200);
+        return response()->json([ 'success'=> $success ], 200);
     }
 
     public function details()
